@@ -1,0 +1,122 @@
+Version: 2.0
+
+################################
+# Alternatives Section
+#
+
+Alternatives: &alternatives
+  Sony Xperia 5.6:
+    wyswietlacz: 6.1
+    pamiec_RAM: 6
+    pamiec_wbudowana: 128
+    aparat_foto: 12
+    cena: 599
+  Sony Xperia 10.3:
+    wyswietlacz: 6
+    pamiec_RAM: 6
+    pamiec_wbudowana: 128
+    aparat_foto: 28
+    cena: 1899
+  Sony Xperia E4:
+    wyswietlacz: 5
+    pamiec_RAM: 1
+    pamiec_wbudowana: 64
+    aparat_foto: 5
+    cena: 349.99
+  Sony Xperia XZ3:
+    wyswietlacz: 6
+    pamiec_RAM: 4
+    pamiec_wbudowana: 64
+    aparat_foto: 19
+    cena: 2899
+  Sony Xperia P:
+    wyswietlacz: 4
+    pamiec_RAM: 1
+    pamiec_wbudowana: 16
+    aparat_foto: 8
+    cena: 761.91
+  Sony Xperia L4:
+    wyswietlacz: 6.2
+    pamiec_RAM: 3
+    pamiec_wbudowana: 64
+    aparat_foto: 20
+    cena: 885
+  Sony Xperia XA2:
+    wyswietlacz: 5.2
+    pamiec_RAM: 3
+    pamiec_wbudowana: 32
+    aparat_foto: 23
+    cena: 899
+  Sony Xperia Z5:
+    wyswietlacz: 5.2
+    pamiec_RAM: 3
+    pamiec_wbudowana: 32
+    aparat_foto: 23
+    cena: 1799
+  Sony Xperia XZ1:
+    wyswietlacz: 5.2
+    pamiec_RAM: 4
+    pamiec_wbudowana: 64
+    aparat_foto: 19
+    cena: 1999
+  Sony Xperia V:
+    wyswietlacz: 4.3
+    pamiec_RAM: 1
+    pamiec_wbudowana: 8
+    aparat_foto: 13
+    cena: 869
+ 
+
+
+#
+# End of Alternatives Section
+################################
+
+################################
+# Goal Section
+#
+
+Goal:
+  name: Wybór smartfona
+  preferences:
+    pairwise:
+      - [Wydajnosc, Styl, 9] 
+      - [Wydajnosc, Cena, 3] 
+      - [Wydajnosc, Jakosc, 2] 
+      - [Styl, Cena, 3] 
+      - [Jakosc, Cena, 2] 
+  children:
+    Wydajnosc:
+      preferences:
+        pairwise:
+          - [pamiec_RAM, pamiec_wbudowana, 4]
+      children:
+        pamiec_RAM:
+          preferences:
+            pairwiseFunction:
+              function(a1, a2) min(9, max(1/9, a1$pamiec_RAM/a2$pamiec_RAM))
+          children: *alternatives
+        pamiec_wbudowana:
+          preferences:
+            pairwiseFunction:
+              function(a1, a2) min(9, max(1/9, a1$pamiec_wbudowana/a2$pamiec_wbudowana))
+          children: *alternatives
+    Jakosc:
+      preferences:
+        pairwiseFunction:
+          function(a1, a2) min(9, max(1/9, a1$wyswietlacz/a2$wyswietlacz))
+      children: *alternatives
+    Styl:
+      preferences:
+        pairwiseFunction:
+          function(a1, a2) min(9, max(1/9, a1$aparat_foto/a2$aparat_foto))
+      children: *alternatives
+    Cena:
+      preferences:
+        pairwiseFunction:
+          function(a1, a2) min(9, max(1/9, a1$cena/a2$cena))
+      children: *alternatives
+
+#
+# End of Goal Section
+################################
