@@ -1,0 +1,127 @@
+
+R version 4.2.0 (2022-04-22 ucrt) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+> install.packages("C50")
+Instalowanie pakietu w ‘C:/Users/rfede/AppData/Local/R/win-library/4.2’
+(ponieważ ‘lib’ nie jest określony)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/C50_0.1.6.zip'
+Content type 'application/zip' length 344362 bytes (336 KB)
+downloaded 336 KB
+
+pakiet ‘C50’ został pomyślnie rozpakowany oraz sumy MD5 zostały sprawdzone
+Warning in install.packages :
+  nie można usunąć poprzedniej instalacji pakietu ‘C50’
+Warning in install.packages :
+  problem copying C:\Users\rfede\AppData\Local\R\win-library\4.2\00LOCK\C50\libs\x64\C50.dll to C:\Users\rfede\AppData\Local\R\win-library\4.2\C50\libs\x64\C50.dll: Permission denied
+Warning in install.packages :
+  przywrócono ‘C50’
+
+Pobrane pakiety binarne są w
+	C:\Users\rfede\AppData\Local\Temp\RtmpG0edAo\downloaded_packages
+> install.packages("MASS")
+Instalowanie pakietu w ‘C:/Users/rfede/AppData/Local/R/win-library/4.2’
+(ponieważ ‘lib’ nie jest określony)
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/4.2/MASS_7.3-57.zip'
+Content type 'application/zip' length 1168854 bytes (1.1 MB)
+downloaded 1.1 MB
+
+pakiet ‘MASS’ został pomyślnie rozpakowany oraz sumy MD5 zostały sprawdzone
+Warning in install.packages :
+  nie można usunąć poprzedniej instalacji pakietu ‘MASS’
+Warning in install.packages :
+  problem copying C:\Users\rfede\AppData\Local\R\win-library\4.2\00LOCK\MASS\libs\x64\MASS.dll to C:\Users\rfede\AppData\Local\R\win-library\4.2\MASS\libs\x64\MASS.dll: Permission denied
+Warning in install.packages :
+  przywrócono ‘MASS’
+
+Pobrane pakiety binarne są w
+	C:\Users\rfede\AppData\Local\Temp\RtmpG0edAo\downloaded_packages
+> library("C50")
+> library("MASS")
+> 
+> data(shuttle)
+> head(shuttle)
+  stability error sign wind   magn vis  use
+1     xstab    LX   pp head  Light  no auto
+2     xstab    LX   pp head Medium  no auto
+3     xstab    LX   pp head Strong  no auto
+4     xstab    LX   pp tail  Light  no auto
+5     xstab    LX   pp tail Medium  no auto
+6     xstab    LX   pp tail Strong  no auto
+> 
+> drzewoDecyzyjne <- C5.0(x=shuttle[,-11], y=shuttle$magn)
+> 
+> summary(drzewoDecyzyjne)
+
+Call:
+C5.0.default(x = shuttle[, -11], y = shuttle$magn)
+
+
+C5.0 [Release 2.07 GPL Edition]  	Sun Jun 12 23:02:43 2022
+-------------------------------
+
+Class specified by attribute `outcome'
+
+Read 256 cases (8 attributes) from undefined.data
+
+Decision tree:
+
+magn = Light: Light (64)
+magn = Medium: Medium (64)
+magn = Out: Out (64)
+magn = Strong: Strong (64)
+
+
+Evaluation on training data (256 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     4    0( 0.0%)   <<
+
+
+	   (a)   (b)   (c)   (d)    <-classified as
+	  ----  ----  ----  ----
+	    64                      (a): class Light
+	          64                (b): class Medium
+	                64          (c): class Out
+	                      64    (d): class Strong
+
+
+	Attribute usage:
+
+	100.00%	magn
+
+
+Time: 0.0 secs
+
+> drzewoDecyzyjne
+
+Call:
+C5.0.default(x = shuttle[, -11], y = shuttle$magn)
+
+Classification Tree
+Number of samples: 256 
+Number of predictors: 7 
+
+Tree size: 4 
+
+Non-standard options: attempt to group attributes
+
+> plot(drzewoDecyzyjne)

@@ -1,0 +1,10 @@
+install.packages("C50")
+install.packages("MASS")
+library("C50")
+library("MASS")
+data(shuttle)
+head(shuttle)
+drzewoDecyzyjne <- C5.0(x=shuttle[,-11], y=shuttle$magn)
+summary(drzewoDecyzyjne)
+drzewoDecyzyjne
+plot(drzewoDecyzyjne)
