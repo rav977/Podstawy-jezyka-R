@@ -1,0 +1,95 @@
+R version 4.2.0 (2022-04-22 ucrt) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+> setwd("D:/apu/ahp")
+> library(ahp)
+> ahpData <- Load("D:/apu/ahp/phones.ahp")
+> Calculate(ahpData)
+> Visualize(ahpData)
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+[1] "Node$fieldsAll will be deprecated in the next release. Please use Node$attributesAll instead."
+[1] "Node$fields will be deprecated in the next release. Please use Node$attributes instead."
+> Analyze(ahpData)
+                           Weight Sony Xperia 10.3 Sony Xperia 5.6 Sony Xperia XZ3 Sony Xperia XZ1
+1 Wybór smartfona          100.0%            16.9%           14.6%           12.8%           11.9%
+2  ¦--Wydajnosc             57.4%            11.0%           11.0%            7.0%            7.0%
+3  ¦   ¦--pamiec_RAM        45.9%             8.6%            8.6%            5.7%            5.7%
+4  ¦   °--pamiec_wbudowana  11.5%             2.4%            2.4%            1.2%            1.2%
+5  ¦--Jakosc                18.0%             2.0%            2.1%            2.0%            1.8%
+6  ¦--Styl                  15.1%             2.5%            1.1%            1.7%            1.7%
+7  °--Cena                   9.5%             1.4%            0.4%            2.1%            1.5%
+  Sony Xperia L4 Sony Xperia Z5 Sony Xperia XA2 Sony Xperia E4 Sony Xperia V Sony Xperia P Inconsistency
+1          10.1%          10.1%            9.4%           5.1%          4.9%          4.4%         18.7%
+2           5.6%           4.9%            4.9%           2.7%          1.6%          1.7%          0.0%
+3           4.3%           4.3%            4.3%           1.4%          1.4%          1.4%          0.0%
+4           1.2%           0.6%            0.6%           1.2%          0.2%          0.3%          0.4%
+5           2.1%           1.8%            1.8%           1.7%          1.5%          1.4%          0.0%
+6           1.8%           2.0%            2.0%           0.4%          1.2%          0.7%          0.0%
+7           0.6%           1.3%            0.7%           0.3%          0.6%          0.6%          0.0%
+> 
