@@ -1,0 +1,100 @@
+
+R version 4.2.0 (2022-04-22 ucrt) -- "Vigorous Calisthenics"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Workspace loaded from ~/.RData]
+
+> setwd("D:/apu/lab4")
+> #install.packages("C50")
+> library(C50)
+> phones <- read.csv("phones.csv")
+> smartdata <- data.frame(phones$wyswietlacz, phones$pamiec_RAM, phones$pamiec_wbudowana, phones$aparat_foto, phones$oceny)
+> smartdata$phones.oceny <- as.factor(smartdata$phones.oceny)
+> smartdata$phones.wyswietlacz <- as.factor(smartdata$phones.wyswietlacz)
+> smartdata$phones.pamiec_RAM <- as.factor(smartdata$phones.pamiec_RAM)
+> smartdata$phones.pamiec_wbudowana <- as.factor(smartdata$phones.pamiec_wbudowana)
+> smartdata$phones.aparat_foto <- as.factor(smartdata$phones.aparat_foto)
+> tree <- C5.0(phones.oceny ~ ., data = smartdata)
+> tree <- C5.0(x=smartdata[,-5], y=smartdata[,5])
+> tree <- C5.0(x=smartdata[,-1], y=smartdata[,1])
+> summary(tree)
+
+Call:
+C5.0.default(x = smartdata[, -1], y = smartdata[, 1])
+
+
+C5.0 [Release 2.07 GPL Edition]  	Sun Jun 12 20:31:42 2022
+-------------------------------
+
+Class specified by attribute `outcome'
+
+Read 15 cases (5 attributes) from undefined.data
+
+Decision tree:
+
+phones.oceny = 0: 6.1 (1)
+phones.oceny in {0.5,1.5}: 6 (2)
+phones.oceny = 1: 5 (1)
+phones.oceny = 2: 4 (1)
+phones.oceny = 2.5: 6.2 (1)
+phones.oceny in {3,3.5,4}: 5.2 (3)
+phones.oceny = 4.5: 4.3 (1)
+phones.oceny = 5: 6.5 (5/2)
+
+
+Evaluation on training data (15 cases):
+
+	    Decision Tree   
+	  ----------------  
+	  Size      Errors  
+
+	     8    2(13.3%)   <<
+
+
+	   (a)   (b)   (c)   (d)   (e)   (f)   (g)   (h)   (i)    <-classified as
+	  ----  ----  ----  ----  ----  ----  ----  ----  ----
+	     1                                                    (a): class 4
+	           1                                              (b): class 4.3
+	                 1                                        (c): class 5
+	                       3                                  (d): class 5.2
+	                             2                            (e): class 6
+	                                   1           1          (f): class 6.1
+	                                         1                (g): class 6.2
+	                                               3          (h): class 6.5
+	                                               1          (i): class 6.7
+
+
+	Attribute usage:
+
+	100.00%	phones.oceny
+
+
+Time: 0.0 secs
+
+> plot(tree)
+> table(predict(tree, newdata=smartdata), smartdata$phones.oceny)
+     
+      0 0.5 1 1.5 2 2.5 3 3.5 4 4.5 5
+  4   0   0 0   0 1   0 0   0 0   0 0
+  4.3 0   0 0   0 0   0 0   0 0   1 0
+  5   0   0 1   0 0   0 0   0 0   0 0
+  5.2 0   0 0   0 0   0 1   1 1   0 0
+  6   0   1 0   1 0   0 0   0 0   0 0
+  6.1 1   0 0   0 0   0 0   0 0   0 0
+  6.2 0   0 0   0 0   1 0   0 0   0 0
+  6.5 0   0 0   0 0   0 0   0 0   0 5
+  6.7 0   0 0   0 0   0 0   0 0   0 0
+> 
